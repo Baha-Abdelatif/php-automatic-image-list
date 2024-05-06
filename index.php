@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./styles/simple.css" />
   <link rel="stylesheet" type="text/css" href="./styles/custom.css" />
-  <title>Document</title>
+  <title>Automatic Image List</title>
 </head>
 
 <body>
@@ -16,14 +16,13 @@
   <main>
     <pre><?php
           $handle = opendir(__DIR__ . '/images');
-          var_dump($handle);
-          var_dump(readdir($handle));
-          var_dump(readdir($handle));
-          var_dump(readdir($handle));
-          var_dump(readdir($handle));
-          var_dump(readdir($handle));
-          var_dump(readdir($handle));
-          var_dump(readdir($handle));
+
+          $images = [];
+          while (($currentFile = readdir($handle)) !== false) {
+            if ($currentFile === "." || $currentFile === ".." || $currentFile === ".DS_Store") continue;
+            $images[] = $currentFile;
+          }
+          var_dump($images);
           closedir($handle);
           ?></pre>
   </main>

@@ -2,7 +2,7 @@
 
 ## Automatic Image List application made with PHP
 
-Fictitious application displaying images and informations about them.
+Fictitious application displaying images and informations about them, built to learn and practice files manipulation in PHP.
 Created with PHP as part of my preparation for the "Fullstack Web & Mobile Application Developer" professional qualification.
 
 ---
@@ -36,7 +36,7 @@ Alternatively, you can view a demo at the following address:
 
 ## Contributions
 
-This site was created under the supervision of Jannis Seemann, a former Software Engineer at Google.
+This site was created under the supervision of Jannis Seemann, former Software Engineer at Google.
 As part of his Masterclass "Modern PHP: The Complete Guide".
 
 ---
