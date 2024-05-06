@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require_once __DIR__ . "/views/header.html";
+require_once __DIR__ . "/inc/functions.php";
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./styles/simple.css" />
-  <link rel="stylesheet" type="text/css" href="./styles/custom.css" />
-  <title>Automatic Image List</title>
-</head>
+$handle = opendir(__DIR__ . '/images');
+$images = [];
 
-<body>
-  <header>
-    <h1>Automatic Image List</h1>
-  </header>
-  <main>
-    <pre><?php
-          $handle = opendir(__DIR__ . '/images');
+while (($currentFile = readdir($handle)) !== false) {
+  if ($currentFile === "." || $currentFile === ".." || $currentFile === ".DS_Store") continue;
+  $images[] = $currentFile;
+}
+closedir($handle);
+?>
 
-          $images = [];
-          while (($currentFile = readdir($handle)) !== false) {
-            if ($currentFile === "." || $currentFile === ".." || $currentFile === ".DS_Store") continue;
-            $images[] = $currentFile;
-          }
-          var_dump($images);
-          closedir($handle);
-          ?></pre>
-  </main>
-</body>
+<ul>
+  <?php foreach ($images as $image) : ?>
+    <li><img src=<?php echo rawurlencode("/images/$image"); ?> alt="an interesting point of view"></li>
+  <?php endforeach; ?>
+</ul>
 
-</html>
+<?php require_once __DIR__ . "/views/footer.html" ?>
