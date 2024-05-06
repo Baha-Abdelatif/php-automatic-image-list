@@ -33,11 +33,15 @@ closedir($handle);
 ?>
 
 <?php foreach ($images as $title => $image) : ?>
-  <h3><?php e($title) ?></h3>
-  <img src="images/<?php echo rawurlencode($image["location"]); ?>" alt="an interesting point of view">
-  <?php foreach ($image['description'] as $description) : ?>
-    <p><?php e($description) ?></p>
-  <?php endforeach; ?>
+  <figure>
+    <h3><?php e($title) ?></h3>
+    <img src="images/<?php echo rawurlencode($image["location"]); ?>" alt="A nice view of <?php e($title) ?>">
+    <figcaption>
+      <?php foreach ($image['description'] as $description) : ?>
+        <p><?php e($description) ?></p>
+      <?php endforeach; ?>
+    </figcaption>
+  </figure>
 <?php endforeach; ?>
 
 <?php require_once __DIR__ . "/views/footer.html" ?>
