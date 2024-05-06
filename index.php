@@ -6,6 +6,7 @@ $images = [];
 
 while (($currentFile = readdir($handle)) !== false) {
   if ($currentFile === "." || $currentFile === ".." || $currentFile === ".DS_Store") continue;
+  if (pathinfo($currentFile, PATHINFO_EXTENSION) !== "jpg") continue;
   $images[] = $currentFile;
 }
 closedir($handle);
