@@ -14,7 +14,7 @@ closedir($handle);
 
 <ul>
   <?php foreach ($images as $image) : ?>
-    <li><img src=<?php echo "images/$image"; ?> alt="an interesting point of view"></li>
+    <li><img src="images/<?php echo rawurlencode($image); ?>" alt="an interesting point of view"></li>
   <?php endforeach; ?>
 </ul>
 
